@@ -1,17 +1,19 @@
-var removeDuplicates = function(nums) {
-    let i = 1;
+var removeDuplicates1 = function(nums) {
+    let k = 1;
 
-    for (let j = 1; j < nums.length; j++) {
-        if (nums[j] !== nums[i - 1]) {
-            nums[i] = nums[j];
-            i++;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] !== nums[k - 1]) {
+            nums[k] = nums[i];
+            k++;
         }
     }
 
-    return i;    
+    return k;    
 };
 
-function removeDuplicates(nums) {
+console.log(removeDuplicates4([3,2,2,3,3,2,4,2]))
+
+function removeDuplicates2(nums) {
     if (nums.length === 0) {
         return 0;
     }
@@ -31,7 +33,7 @@ function removeDuplicates(nums) {
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(nums) {
+var removeDuplicates3 = function(nums) {
     let i = 0;
     for (let j = 0; j < nums.length; j++) {
         if (nums[j] != nums[i]) 
@@ -39,3 +41,29 @@ var removeDuplicates = function(nums) {
     }
     return ++i;
 };
+
+
+var removeDuplicates4 = function(nums) {
+    let numbersSet = new Set(nums)
+    let numArray = [...numbersSet];
+    console.log(numArray);
+    
+    let k = numArray.length
+    return k
+};
+
+var removeDuplicates5 = function(nums) {
+    let k = 1;
+    for(let i=1;i<nums.length;i++){
+        if(nums[k] !== nums[i]){
+            num[i] == 
+            k++
+        } 
+    }
+
+    return k
+};
+
+
+console.log(removeDuplicates4([3,2,2,3]))
+console.log(removeDuplicates5([3,2,3,2]))
