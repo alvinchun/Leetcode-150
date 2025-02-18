@@ -50,3 +50,16 @@ var isHappy = function(n) {
 
     return slow === 1;    
 };
+
+var isHappy = function(n) {
+    const getNext = (num) => [...num.toString()].reduce((sum, digit) => sum + digit ** 2, 0);
+
+    let slow = n, fast = getNext(n);
+
+    while (fast !== 1 && slow !== fast) {
+        slow = getNext(slow);
+        fast = getNext(getNext(fast));
+    }
+
+    return fast === 1;
+};

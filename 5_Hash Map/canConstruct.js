@@ -51,3 +51,17 @@ var canConstruct = function(ransomNote, magazine) {
     }
     return true;
 };
+
+var canConstruct = function(ransomNote, magazine) {
+    const freq = {};
+
+    for (let char of magazine) {
+        freq[char] = (freq[char] || 0) + 1;
+    }
+
+    for (let char of ransomNote) {
+        if (!freq[char]--) return false;
+    }
+
+    return true;
+};

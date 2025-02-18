@@ -14,47 +14,7 @@ var majorityElement = function(nums) {
             majority = hash[n];
         }
     }
-
     return res;    
-};
-
-
-function majorityElement(nums: number[]): number {
-    let candidate;
-    let count = 0;
-    
-    for (const num of nums) {
-        if (count === 0) {
-            candidate = num;
-        }
-        
-        count += (num === candidate) ? 1 : -1
-    }
-    
-    return candidate;
-};
-
-var majorityElement = function(nums) {
-    // Initialize sol and cnt to store the solution and its frequency for respective iterations...
-    let sol = 0, cnt = 0;
-    // For every element i in the array...
-    for(let i = 0; i < nums.length; i++ ) {
-        // If cnt is equal to zero, update sol as sol = i
-        if(cnt == 0){
-            sol = nums[i];
-            cnt = 1;
-        }
-        // If i is equal to candidate, increment cnt...
-        else if(sol == nums[i]){
-            cnt++;
-        }
-        // Otherwise, decrement cnt...
-        else{
-            cnt--;
-        }
-    }
-    // Return & print the solution...
-    return sol;
 };
 
 var majorityElement = function(nums) {
@@ -65,4 +25,18 @@ var majorityElement = function(nums) {
         if(obj[nums[i]] > nums.length / 2)  return nums[i];
     }
     
+};
+
+var majorityElement = function(nums) {
+    let candidate = null;
+    let count = 0;
+
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        }
+        count += (num === candidate) ? 1 : -1;
+    }
+
+    return candidate;
 };

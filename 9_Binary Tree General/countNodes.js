@@ -33,3 +33,32 @@ var countNodes = function (r) {
   
     return dfs(r);
   };
+
+  var countNodes = function(root) {
+    if (!root) return 0;
+
+    function leftDepth(node) {
+        let depth = 0;
+        while (node) {
+            depth++;
+            node = node.left;
+        }
+        return depth;
+    }
+
+    function rightDepth(node) {
+        let depth = 0;
+        while (node) {
+            depth++;
+            node = node.right;
+        }
+        return depth;
+    }
+
+    const leftLen = leftDepth(root);
+    const rightLen = rightDepth(root);
+
+    if (leftLen === rightLen) return Math.pow(2, leftLen) - 1;
+
+    return 1 + countNodes(root.left) + countNodes(root.right);
+};

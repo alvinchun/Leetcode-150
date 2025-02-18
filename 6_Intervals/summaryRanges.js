@@ -52,3 +52,26 @@ function summaryRanges(nums) {
     }
     return res;
   }
+
+  var summaryRanges = function(nums) {
+    const output = [];
+    let i = 0;
+
+    while (i < nums.length) {
+        let start = nums[i];
+
+        while (i + 1 < nums.length && nums[i + 1] === nums[i] + 1) {
+            i++;
+        }
+
+        if (start === nums[i]) {
+            output.push(`${start}`);
+        } else {
+            output.push(`${start}->${nums[i]}`);
+        }
+
+        i++;
+    }
+
+    return output;
+};

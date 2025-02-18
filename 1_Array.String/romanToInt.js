@@ -21,6 +21,8 @@ var romanToInt = function(s) {
     return res + roman[s[s.length - 1]];    
 };
 
+
+
 var romanToInt = function(s) {
     const sym = {
       'I': 1,
@@ -47,4 +49,18 @@ var romanToInt = function(s) {
   }
 
   return result;
+};
+
+var romanToInt = function(s) {
+    const sym = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+    let result = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let cur = sym[s[i]];
+        let next = sym[s[i + 1]] || 0; // Avoids undefined for the last character
+
+        result += cur < next ? -cur : cur;
+    }
+
+    return result;
 };

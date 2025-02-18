@@ -44,3 +44,18 @@ var isPair = function(last, cur) {
         (last === '[' && cur === ']')
     );
 };
+
+var isValid = function(s) {
+    const stack = [];
+    const mapping = { ')': '(', '}': '{', ']': '[' };
+
+    for (const c of s) {
+        if (mapping[c]) {
+            if (stack.pop() !== mapping[c]) return false;
+        } else {
+            stack.push(c);
+        }
+    }
+
+    return stack.length === 0;
+};

@@ -48,6 +48,19 @@ var removeElement4 = function(nums, val) {
     return j
 };
 
+var removeElement = function(nums, val) {
+    let k = 0;
+
+    for (let num of nums) {
+        if (num !== val) {
+            nums[k++] = num;
+        }
+    }
+
+    return k;
+};
+
+
 console.log(removeElement1([3,2,2,3], 3))
 console.log(removeElement2([3,2,2,3], 3))
 console.log(removeElement3([3,2,2,3], 3))

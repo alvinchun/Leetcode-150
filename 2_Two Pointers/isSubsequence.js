@@ -54,3 +54,18 @@ var isSubsequence = function(s, t) {
 
     return sp === s.length;    
 };
+
+const isSubsequence = (s, t) => {
+  if (s.length === 0) return true;  // Empty string is always a subsequence
+  if (s.length > t.length) return false;
+
+  let i = 0;
+  for (let char of t) {
+      if (char === s[i]) {
+          i++;
+          if (i === s.length) return true;  // Stop early if we found all characters
+      }
+  }
+
+  return false;
+};

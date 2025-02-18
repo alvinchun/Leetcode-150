@@ -60,3 +60,24 @@ var isIsomorphic = function(s, t) {
 
     return true;    
 };
+
+var isIsomorphic = function(s, t) {
+    if (s.length !== t.length) return false;
+
+    const sMap = new Map();
+    const tMap = new Map();
+
+    for (let i = 0; i < s.length; i++) {
+        let sc = s[i], tc = t[i];
+
+        if ((sMap.get(sc) !== undefined && sMap.get(sc) !== tc) || 
+            (tMap.get(tc) !== undefined && tMap.get(tc) !== sc)) {
+            return false;
+        }
+
+        sMap.set(sc, tc);
+        tMap.set(tc, sc);
+    }
+
+    return true;
+};

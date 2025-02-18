@@ -48,3 +48,25 @@ var wordPattern = function(pattern, s) {
 
     return true // pattern is valid
 };
+
+var wordPattern = function(pattern, str) {
+    const words = str.split(" ");
+    if (words.length !== pattern.length) return false;
+
+    const map = new Map();
+    const usedWords = new Set();
+
+    for (let i = 0; i < pattern.length; i++) {
+        let p = pattern[i], w = words[i];
+
+        if (map.has(p)) {
+            if (map.get(p) !== w) return false;
+        } else {
+            if (usedWords.has(w)) return false;
+            map.set(p, w);
+            usedWords.add(w);
+        }
+    }
+    
+    return true;
+};

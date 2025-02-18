@@ -48,3 +48,7 @@ var lengthOfLastWord = function(s) {
 
     return length;    
 };
+
+var lengthOfLastWord = function(s) {
+    return s.trim().split(" ").pop().length;
+};
